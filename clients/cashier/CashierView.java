@@ -25,6 +25,7 @@ public class CashierView implements Observer
   private static final String BOUGHT = "Bought";
 
   private final JLabel      theAction  = new JLabel();
+  private final JLabel		theAlert   = new JLabel();
   private final JTextField  theInput   = new JTextField();
   private final JTextArea   theOutput  = new JTextArea();
   private final JScrollPane theSP      = new JScrollPane();
@@ -80,6 +81,10 @@ public class CashierView implements Observer
     theAction.setBounds( 110, 25 , 270, 20 );       // Message area
     theAction.setText( "" );                        // Blank
     cp.add( theAction );                            //  Add to canvas
+    
+    theAlert.setBounds( 16, 25+60*2, 80, 40 );       // Message area
+    theAlert.setText( "" );                        // Blank
+    cp.add( theAlert );                            //  Add to canvas
 
     theInput.setBounds( 110, 50, 270, 40 );         // Input Area
     theInput.setText("");                           // Blank

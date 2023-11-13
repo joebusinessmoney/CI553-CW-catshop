@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
+
+
 /**
  * The visual display seen by customers (Change to graphical version)
  * Change to a graphical display
@@ -52,6 +54,8 @@ public class DisplayView extends Canvas implements Observer
   {
     cont = c;
   }
+  
+
   
   /**
    * Called to update the display in the shop
@@ -128,7 +132,7 @@ public class DisplayView extends Canvas implements Observer
  
   public void drawActualScreen( Graphics2D g )  // Re draw contents 
   {
-    g.setPaint( Color.white );            // Paint Colour 
+    g.setPaint( Color.pink );            // Paint Colour 
     W = getWidth(); H = getHeight();      // Current size
     
     g.setFont( font );

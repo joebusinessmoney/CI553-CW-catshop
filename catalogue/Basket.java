@@ -72,6 +72,7 @@ public class Basket extends ArrayList<Product> implements Serializable
     Formatter     fr = new Formatter(sb, uk);
     String csign = (Currency.getInstance( uk )).getSymbol();
     double total = 0.00;
+    boolean discount = false;
     if ( theOrderNum != 0 )
       fr.format( "Order number: %03d\n", theOrderNum );
       
@@ -86,6 +87,13 @@ public class Basket extends ArrayList<Product> implements Serializable
         fr.format("%s%7.2f",    csign, pr.getPrice() * number );
         fr.format("\n");
         total += pr.getPrice() * number;
+        
+        
+		if (total >= 500 && discount == false) { // applies a -£50 discount on £500 orders and above
+        	discount = true;
+        	total = total - 50;
+        }
+        
       }
       fr.format("----------------------------\n");
       fr.format("Total                       ");

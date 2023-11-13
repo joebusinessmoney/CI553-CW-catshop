@@ -101,6 +101,7 @@ public class CashierModel extends Observable
   {
     String theAction = "";
     int    amount  = 1;                         //  & quantity
+    
     try
     {
       if ( theState != State.checked )          // Not checked

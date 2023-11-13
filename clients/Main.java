@@ -2,6 +2,7 @@ package clients;
 import clients.backDoor.BackDoorController;
 import clients.backDoor.BackDoorModel;
 import clients.backDoor.BackDoorView;
+import clients.cashier.BetterCashierModel;
 import clients.cashier.CashierController;
 import clients.cashier.CashierModel;
 import clients.cashier.CashierView;
@@ -22,6 +23,7 @@ import middle.MiddleFactory;
 
 import javax.swing.*;
 import java.awt.*;
+import catalogue.BetterBasket;
 
 
 /**
@@ -48,17 +50,19 @@ class Main
   {
     //DEBUG.set(true); /* Lots of debug info */
     MiddleFactory mlf = new LocalMiddleFactory();  // Direct access
- 
+    
+    
     startCustomerGUI_MVC( mlf );
     if ( many ) 
      startCustomerGUI_MVC( mlf );
-    startCashierGUI_MVC( mlf );
-    startCashierGUI_MVC( mlf );
+    startBetterCashierGUI_MVC( mlf );
+    startBetterCashierGUI_MVC( mlf );
     startBackDoorGUI_MVC( mlf );
     if ( many ) 
       startPickGUI_MVC( mlf );
     startPickGUI_MVC( mlf );
     startDisplayGUI_MVC( mlf );
+    startAdvertGUI_MVC( mlf ); //start new advert client
     if ( many ) 
       startDisplayGUI_MVC( mlf );
     startCollectionGUI_MVC( mlf );
@@ -84,22 +88,39 @@ class Main
    * start the cashier client
    * @param mlf A factory to create objects to access the stock list
    */
-  public void startCashierGUI_MVC(MiddleFactory mlf )
-  {
-    JFrame  window = new JFrame();
-    window.setTitle( "Cashier Client MVC");
-    window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-    Dimension pos = PosOnScrn.getPos();
-    
-    CashierModel model      = new CashierModel(mlf);
-    CashierView view        = new CashierView( window, mlf, pos.width, pos.height );
-    CashierController cont  = new CashierController( model, view );
-    view.setController( cont );
+//  public void startCashierGUI_MVC(MiddleFactory mlf )
+//  {
+//    JFrame  window = new JFrame();
+//    window.setTitle( "Cashier Client MVC");
+//    window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+//    Dimension pos = PosOnScrn.getPos();
+//    
+//    CashierModel model      = new CashierModel(mlf);
+//    CashierView view        = new CashierView( window, mlf, pos.width, pos.height );
+//    CashierController cont  = new CashierController( model, view );
+//    view.setController( cont );
+//
+//    model.addObserver( view );       // Add observer to the model
+//    window.setVisible(true);         // Make window visible
+//    model.askForUpdate();            // Initial display
+//  }
+  
+  public void startBetterCashierGUI_MVC(MiddleFactory mlf) { // same as previous cashiergui however utilises bettercashier + betterbasket instead
+	    JFrame window = new JFrame();
+	    window.setTitle("Better Cashier Client MVC");
+	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    Dimension pos = PosOnScrn.getPos();
 
-    model.addObserver( view );       // Add observer to the model
-    window.setVisible(true);         // Make window visible
-    model.askForUpdate();            // Initial display
-  }
+	    BetterCashierModel model = new BetterCashierModel(mlf); // 
+	    CashierView view = new CashierView(window, mlf, pos.width, pos.height);
+	    CashierController cont = new CashierController(model, view);
+	    view.setController(cont);
+
+	    model.addObserver(view); // Add observer to the model
+	    window.setVisible(true); // Make window visible
+	    model.askForUpdate(); // Initial display
+	}
+
 
   public void startBackDoorGUI_MVC(MiddleFactory mlf )
   {
@@ -141,6 +162,23 @@ class Main
     JFrame  window = new JFrame();
 
     window.setTitle( "Display Client MVC");
+    window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+    Dimension pos = PosOnScrn.getPos();
+    
+    DisplayModel model      = new DisplayModel(mlf);
+    DisplayView view        = new DisplayView( window, mlf, pos.width, pos.height );
+    DisplayController cont  = new DisplayController( model, view );
+    view.setController( cont );
+
+    model.addObserver( view );       // Add observer to the model
+    window.setVisible(true);         // Make window visible
+  }
+  
+  public void startAdvertGUI_MVC(MiddleFactory mlf )
+  {
+    JFrame  window = new JFrame();
+
+    window.setTitle( "Advertisement Client MVC");
     window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     Dimension pos = PosOnScrn.getPos();
     

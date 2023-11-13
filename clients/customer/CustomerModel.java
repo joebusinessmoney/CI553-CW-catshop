@@ -107,6 +107,10 @@ public class CustomerModel extends Observable
     setChanged(); notifyObservers(theAction);
   }
   
+  public void doExpand (String h) {
+	  
+  }
+  
   /**
    * Return a picture of the product
    * @return An instance of an ImageIcon
@@ -132,5 +136,6 @@ public class CustomerModel extends Observable
   {
     return new Basket();
   }
+
 }
 
