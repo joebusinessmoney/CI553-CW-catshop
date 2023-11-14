@@ -54,8 +54,12 @@ public class DisplayView extends Canvas implements Observer
     rootWindow.add( this, BorderLayout.CENTER );    //  Add to rootwindow
     
     rootWindow.setVisible( true );                  // Make visible
-    DisplaySongs songs = new DisplaySongs();
-    songs.musicPlayer();
+    
+    DisplaySongs songs = new DisplaySongs();		// initialises music player 
+    songs.musicPlayer();							// plays music
+    
+    DisplayAdvert ads = new DisplayAdvert();
+   
   }
   
   

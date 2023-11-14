@@ -38,27 +38,4 @@ public class AdvertView {
         }
     }
 
-    public static class Image {
-
-        public Image() {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    JFrame frame = new JFrame("Image Viewer");
-                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-                    ImageLabel imageLabel = new ImageLabel();
-                    frame.add(imageLabel, BorderLayout.CENTER);
-
-                    frame.pack();
-                    frame.setLocationRelativeTo(null);
-                    frame.setVisible(true);
-                }
-            });
-        }
-    }
-
-    public static void main(String[] args) throws Exception {
-        new Image();
-    }
 }

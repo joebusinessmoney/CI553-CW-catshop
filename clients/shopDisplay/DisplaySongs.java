@@ -12,17 +12,17 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class DisplaySongs {
 	
 		  Clip clip;
-		  AudioInputStream audioInputStream;
+		  AudioInputStream song;
 		  static String filePath = "song1.wav";
 	
 	  public void musicPlayer()  {
 		  
 		  try {
-			  audioInputStream = AudioSystem.getAudioInputStream(new File(filePath).getAbsoluteFile());
+			  song = AudioSystem.getAudioInputStream(new File(filePath).getAbsoluteFile()); //gets the song from the given file path
 			  clip = AudioSystem.getClip();
-			  clip.open(audioInputStream);
-			  clip.start();
-			  clip.loop(Clip.LOOP_CONTINUOUSLY);
+			  clip.open(song);
+			  clip.start(); // starts the song
+			  clip.loop(Clip.LOOP_CONTINUOUSLY); // loops the song
 			  
 		  } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
 			  e.printStackTrace();
