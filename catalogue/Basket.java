@@ -92,6 +92,7 @@ public class Basket extends ArrayList<Product> implements Serializable
 		if (total >= 500 && discount == false) { // applies a -£50 discount on £500 orders and above
         	discount = true;
         	total = total - 50;
+        	fr.format("Large order discount applied! (-$50)\n");
         }
         
       }
