@@ -4,6 +4,10 @@ import middle.MiddleFactory;
 import middle.Names;
 import middle.RemoteMiddleFactory;
 
+import java.io.IOException;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 
 /**
@@ -13,7 +17,7 @@ import javax.swing.*;
  */
 public class AdvertClient
 {
-   public static void main (String args[])
+   public static void main (String args[]) throws UnsupportedAudioFileException, IOException, LineUnavailableException
    {
      String stockURL = args.length < 1     // URL of stock RW
                      ? Names.STOCK_RW      //  default  location
@@ -28,7 +32,7 @@ public class AdvertClient
     displayGUI(mrf);                       // Create GUI
   }
   
-  private static void displayGUI(MiddleFactory mf)
+  private static void displayGUI(MiddleFactory mf) throws UnsupportedAudioFileException, IOException, LineUnavailableException
   {     
     JFrame  window = new JFrame();
 

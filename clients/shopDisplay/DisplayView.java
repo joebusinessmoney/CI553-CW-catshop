@@ -12,6 +12,10 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.sound.sampled.*;
 
 
 /**
@@ -35,6 +39,9 @@ public class DisplayView extends Canvas implements Observer
    * @param mf    Factor to deliver order and stock objects
    * @param x     x-coordinate of position of window on screen 
    * @param y     y-coordinate of position of window on screen  
+ * @throws LineUnavailableException 
+ * @throws IOException 
+ * @throws UnsupportedAudioFileException 
    */
   
   public DisplayView(  RootPaneContainer rpc, MiddleFactory mf, int x, int y )
@@ -47,7 +54,10 @@ public class DisplayView extends Canvas implements Observer
     rootWindow.add( this, BorderLayout.CENTER );    //  Add to rootwindow
     
     rootWindow.setVisible( true );                  // Make visible
+    DisplaySongs songs = new DisplaySongs();
+    songs.musicPlayer();
   }
+  
   
   
   public void setController( DisplayController c )

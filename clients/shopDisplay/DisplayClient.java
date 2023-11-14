@@ -4,6 +4,10 @@ import middle.MiddleFactory;
 import middle.Names;
 import middle.RemoteMiddleFactory;
 
+import java.io.IOException;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 
 /**
@@ -28,7 +32,7 @@ public class DisplayClient
     displayGUI(mrf);                       // Create GUI
   }
   
-  private static void displayGUI(MiddleFactory mf)
+  private static void displayGUI(MiddleFactory mf) 
   {     
     JFrame  window = new JFrame();
 
