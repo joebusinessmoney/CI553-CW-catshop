@@ -27,7 +27,7 @@ public class BetterBasket extends Basket implements Serializable {
             Product existingProduct = productMap.get(pr.getProductNum());
             existingProduct.setQuantity(existingProduct.getQuantity() + pr.getQuantity()); // adds the quantity of the new product as well as the existing one to merge the two
         } else {
-            productMap.put(pr.getProductNum(), pr);
+            productMap.put(pr.getProductNum(), pr); // adds it to the hashmap
         }
         super.clear();
         super.addAll(productMap.values());

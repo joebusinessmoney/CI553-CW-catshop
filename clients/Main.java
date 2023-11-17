@@ -62,7 +62,7 @@ class Main
       startPickGUI_MVC( mlf );
     startPickGUI_MVC( mlf );
     startDisplayGUI_MVC( mlf );
-    startAdvertGUI_MVC( mlf ); //start new advert client
+    //startAdvertGUI_MVC( mlf ); //start new advert client
     if ( many ) 
       startDisplayGUI_MVC( mlf );
     startCollectionGUI_MVC( mlf );
@@ -174,22 +174,22 @@ class Main
     window.setVisible(true);         // Make window visible
   }
   
-  public void startAdvertGUI_MVC(MiddleFactory mlf )
-  {
-    JFrame  window = new JFrame();
-
-    window.setTitle( "Advertisement Client MVC");
-    window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-    Dimension pos = PosOnScrn.getPos();
-    
-    DisplayModel model      = new DisplayModel(mlf);
-    DisplayView view        = new DisplayView( window, mlf, pos.width, pos.height );
-    DisplayController cont  = new DisplayController( model, view );
-    view.setController( cont );
-
-    model.addObserver( view );       // Add observer to the model
-    window.setVisible(true);         // Make window visible
-  }
+//  public void startAdvertGUI_MVC(MiddleFactory mlf )
+//  {
+//    JFrame  window = new JFrame();
+//
+//    window.setTitle( "Advertisement Client MVC");
+//    window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+//    Dimension pos = PosOnScrn.getPos();
+//    
+//    DisplayModel model      = new DisplayModel(mlf);
+//    DisplayView view        = new DisplayView( window, mlf, pos.width, pos.height );
+//    DisplayController cont  = new DisplayController( model, view );
+//    view.setController( cont );
+//
+//    model.addObserver( view );       // Add observer to the model
+//    window.setVisible(true);         // Make window visible
+//  }
 
 
   public void startCollectionGUI_MVC(MiddleFactory mlf )
