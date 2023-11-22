@@ -23,10 +23,10 @@ public class CustomerView implements Observer
   {
     public static final String CHECK  = "Check";
     public static final String CLEAR  = "Clear";
-    public static final String EXPAND = "Expand";
+    public static final String EXPAND = "v";
   }
 
-  private static final int H = 400;       // Height of window pixels
+  private static final int H = 300;       // Height of window pixels
   private static final int W = 400;       // Width  of window pixels
 
   private final JLabel      theAction  = new JLabel();
@@ -76,7 +76,7 @@ public class CustomerView implements Observer
       e -> cont.doClear() );
     cp.add( theBtClear );                           //  Add to canvas
     
-    theBtExpand.setBounds( 16, 25+60*4, 80, 40 );    // Expand button
+    theBtExpand.setBounds( 32, 50+60*3, 45, 30 );    // Expand button
     theBtExpand.addActionListener(                   // Call back code
       e -> cont.doExpand() );
     cp.add( theBtExpand );                           //  Add to canvas

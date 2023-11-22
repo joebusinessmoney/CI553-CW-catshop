@@ -1,6 +1,7 @@
 package clients.cashier;
 
 import catalogue.Basket;
+import catalogue.BetterBasket;
 import catalogue.Product;
 import debug.DEBUG;
 import middle.*;
@@ -131,6 +132,29 @@ public class CashierModel extends Observable
     theState = State.process;                   // All Done
     setChanged(); notifyObservers(theAction);
   }
+  
+  public void doRemove() {
+	    String theAction = "";
+	    try {
+	        if (theBasket != null && theBasket.size() > 0) { // any products to remove?
+	            Product removedProduct = theBasket.removeProduct();
+	            if (removedProduct != null) {
+	                theStock.addStock(removedProduct.getProductNum(), removedProduct.getQuantity()); // adds the quantity of removed products back to the stock
+	                theAction = "Removed " + removedProduct.getDescription();
+	            } else {
+	                theAction = "No removable products";
+	            }
+	        } else {
+	            theAction = "Basket is empty";
+	        } 
+	    } catch (StockException e) {
+	        DEBUG.error("%s\n%s", "CashierModel.doRemove", e.getMessage());
+	        theAction = e.getMessage();
+	    }
+	    setChanged();
+	    notifyObservers(theAction);
+	}
+
   
   /**
    * Customer pays for the contents of the basket

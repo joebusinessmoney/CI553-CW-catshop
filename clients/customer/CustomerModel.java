@@ -107,7 +107,7 @@ public class CustomerModel extends Observable
     setChanged(); notifyObservers(theAction);
   }
   
-  public void doExpand (String h) {
+  public void doExpand () {
 	  
   }
   
