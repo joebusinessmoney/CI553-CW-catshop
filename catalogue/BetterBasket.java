@@ -44,7 +44,7 @@ public class BetterBasket extends Basket implements Serializable {
     	if (!isEmpty() && canRemove == true) {
     		productMap.remove(lastProduct.getProductNum()); 
     		super.remove(lastProduct);
-    		canRemove = false; //stops issues caused by pressing the remove button straight after removing an item
+    		canRemove = false; //stops issues caused by pressing the remove button again straight after removing an item
     		return lastProduct;
     	} 
     	

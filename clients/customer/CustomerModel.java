@@ -107,7 +107,14 @@ public class CustomerModel extends Observable
     setChanged(); notifyObservers(theAction);
   }
   
-  public void doExpand () {
+  public void doExpand ( boolean expanded) {
+	 if (expanded == true) {
+		 setChanged();
+		 notifyObservers("REVERT");
+	 } else {
+		 setChanged();
+		 notifyObservers("EXPAND");
+	 }
 	  
   }
   

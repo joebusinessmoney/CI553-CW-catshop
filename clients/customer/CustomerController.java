@@ -40,7 +40,8 @@ public class CustomerController
 
   public void doExpand()
   {
-	//model.doExpand();
+	boolean expanded = view.setExpand();
+	model.doExpand(expanded);
   }
   
 }

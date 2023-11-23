@@ -40,6 +40,9 @@ public class CustomerView implements Observer
   private Picture thePicture = new Picture(80,80);
   private StockReader theStock   = null;
   private CustomerController cont= null;
+  private Container contentPane = null;
+  
+  private Boolean expanded = false;
 
   /**
    * Construct the view
@@ -51,6 +54,7 @@ public class CustomerView implements Observer
   
   public CustomerView( RootPaneContainer rpc, MiddleFactory mf, int x, int y )
   {
+	contentPane = rpc.getContentPane();
     try                                             // 
     {      
       theStock  = mf.makeStockReader();             // Database Access
@@ -78,7 +82,7 @@ public class CustomerView implements Observer
     
     theBtExpand.setBounds( 32, 50+60*3, 45, 30 );    // Expand button
     theBtExpand.addActionListener(                   // Call back code
-      e -> cont.doExpand() );
+      e -> { cont.doExpand(); expanded = !expanded;} ); // toggles window expansion on click
     cp.add( theBtExpand );                           //  Add to canvas
 
     theAction.setBounds( 110, 25 , 270, 20 );       // Message area
@@ -101,6 +105,10 @@ public class CustomerView implements Observer
     
     rootWindow.setVisible( true );                  // Make visible);
     theInput.requestFocus();                        // Focus is here
+  }
+  
+  public boolean setExpand() {
+	  return expanded;
   }
 
    /**
@@ -133,6 +141,19 @@ public class CustomerView implements Observer
     }
     theOutput.setText( model.getBasket().getDetails() );
     theInput.requestFocus();               // Focus is here
+    
+    if ((((String) arg).equals("EXPAND") || ((String) arg).equals("REVERT"))) {
+    	JFrame frame = (JFrame) SwingUtilities.getRoot(contentPane);
+    	if (expanded == true) {
+    		frame.setSize(W, H);
+    		//System.out.println("revert");
+    	} else {
+    		frame.setSize(W, H + 100);
+    		//System.out.println("expand");
+    	}
+    	frame.validate();
+    }
+    
   }
 
 }

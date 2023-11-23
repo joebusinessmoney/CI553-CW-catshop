@@ -133,6 +133,7 @@ public class CashierModel extends Observable
     setChanged(); notifyObservers(theAction);
   }
   
+  
   public void doRemove() {
 	    String theAction = "";
 	    try {
