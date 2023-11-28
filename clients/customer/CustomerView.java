@@ -142,8 +142,8 @@ public class CustomerView implements Observer
     theOutput.setText( model.getBasket().getDetails() );
     theInput.requestFocus();               // Focus is here
     
-    if ((((String) arg).equals("EXPAND") || ((String) arg).equals("REVERT"))) {
-    	JFrame frame = (JFrame) SwingUtilities.getRoot(contentPane);
+    if ((message.equals("EXPAND") || message.equals("REVERT"))) { // check for notification from model
+    	JFrame frame = (JFrame) SwingUtilities.getRoot(contentPane); 
     	if (expanded == true) {
     		frame.setSize(W, H);
     		//System.out.println("revert");
