@@ -11,9 +11,36 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import java.awt.Dimension;
 
-public class AdvertView {
+import javax.swing.*;
+import java.awt.*;
+import java.util.Observer;
+import java.util.Observable;
 
-    public static class ImageLabel extends JPanel implements Serializable {
-        private static final long serialVersionUID = 1L;
+public class AdvertView extends JPanel implements Observer {
+
+
+	private static final long serialVersionUID = 1L;
+	
+	private JLabel imageLabel;
+    
+    public AdvertView() {
+    	setLayout(new BorderLayout());
+    	
+    	imageLabel = new JLabel(); // images are displayed using JLabel and image icon
+    	add(imageLabel, BorderLayout.CENTER);
+    }
+    
+    public void updateImage(String Images) { // switches image using the current image file location
+    	ImageIcon icon = new ImageIcon(Images);
+    	imageLabel.setIcon(icon); //sets the new image
+    }
+    
+    @Override
+    
+    public void update(Observable o, Object arg) {
+    	if (o instanceof AdvertModel) {
+    		AdvertModel advertModel = (AdvertModel) o;
+    		updateImage(advertModel.getCurrentImage());
+    	}
     }
 }

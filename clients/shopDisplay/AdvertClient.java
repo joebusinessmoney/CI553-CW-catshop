@@ -17,7 +17,7 @@ import javax.swing.*;
  */
 public class AdvertClient
 {
-   public static void main (String args[]) throws UnsupportedAudioFileException, IOException, LineUnavailableException
+   public static void main (String args[])
    {
      String stockURL = args.length < 1     // URL of stock RW
                      ? Names.STOCK_RW      //  default  location
@@ -29,22 +29,22 @@ public class AdvertClient
     RemoteMiddleFactory mrf = new RemoteMiddleFactory();
     mrf.setStockRWInfo( stockURL );
     mrf.setOrderInfo  ( orderURL );        //
-    displayGUI(mrf);                       // Create GUI
+    //advertGUI(mrf);                       // Create GUI
   }
   
-  private static void displayGUI(MiddleFactory mf) throws UnsupportedAudioFileException, IOException, LineUnavailableException
-  {     
-    JFrame  window = new JFrame();
-
-    window.setTitle( "Pick Client MVC");
-    window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-    
-    DisplayModel    model = new  DisplayModel(mf);
-    DisplayView     view  = new  DisplayView( window, mf, 0, 0 );
-    DisplayController cont  = new DisplayController( model, view );
-    view.setController( cont );
-
-    model.addObserver( view );       // Add observer to the model
-    window.setVisible(true);         // Display Screen 
-  }
+//  private static void advertGUI(MiddleFactory mf)
+//  {     
+//    JFrame  window = new JFrame();
+//
+//    window.setTitle( "Pick Client MVC");
+//    window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+//    
+//    AdvertModel    model = new  AdvertModel(mf);
+//    AdvertView     view  = new  AdvertView( window, mf, 0, 0 );
+//    AdvertController cont  = new AdvertController( model, view );
+//    view.setController( cont );
+//
+//    model.addObserver( view );       // Add observer to the model
+//    window.setVisible(true);         // Display Screen 
+//  }
 }
