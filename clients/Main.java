@@ -185,7 +185,7 @@ class Main
     
     JFrame window = new JFrame();
     window.setTitle("Advertisement");
-    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    //window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     Dimension pos = PosOnScrn.getPos();
     
     
