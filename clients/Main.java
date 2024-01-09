@@ -185,7 +185,7 @@ class Main
     
     JFrame window = new JFrame();
     window.setTitle("Advertisement");
-    //window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    //window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // removing this allows the user to close the advertisement without ending the program
     Dimension pos = PosOnScrn.getPos();
     
     
