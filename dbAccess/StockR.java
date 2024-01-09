@@ -140,6 +140,8 @@ public class StockR implements StockReader
       throw new StockException( "SQL getDetails: " + e.getMessage() );
     }
   }
+  
+  
 
   /**
    * Returns 'image' of the product
