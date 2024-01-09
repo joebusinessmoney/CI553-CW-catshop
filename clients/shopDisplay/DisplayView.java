@@ -56,7 +56,7 @@ public class DisplayView extends Canvas implements Observer
     rootWindow.setVisible( true );                  // Make visible
     
     DisplaySongs songs = new DisplaySongs();		// initialises music player 
-    //songs.musicPlayer();							// plays music
+    songs.musicPlayer();							// plays music
   }
   
   
