@@ -199,7 +199,7 @@ class Main
     new Thread(() -> { 
     	while (true) { // this creates an image slideshow loop
     		try {
-    			Thread.sleep(1000);  								// waits 1000 ms
+    			Thread.sleep(5000);  								// waits 5000 ms
     			SwingUtilities.invokeLater(() -> cont.nextImage());	// goes to the next image
     		} catch (InterruptedException e) {
     			e.printStackTrace();
